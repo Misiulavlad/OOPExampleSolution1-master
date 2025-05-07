@@ -1,19 +1,19 @@
 #include "Integer.h"
 
 int main() {
-    Integer number{};
+    Integer number;
     int num;
 
     cout << "Enter a number: ";
     cin >> num;
     number.setValue(num);
 
-    int value;
     cout << "Enter a value: ";
-    cin >> value;
+    cin >> num;
+    Integer value(num);
     
 
-    cout << "Initial number: "<<number.getValue()<<endl;
+    cout << "Initial number: "<< number.getValue()<<endl;
    
 
     number = number.add(value);

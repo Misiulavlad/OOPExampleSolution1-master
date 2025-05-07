@@ -86,4 +86,3 @@ double Student::getAverageMark() {
 
 	return sum / countMark;
 }
-

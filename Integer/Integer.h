@@ -9,7 +9,7 @@ public:
 	Integer(int value) { this->value = value; }
 
 	int getValue();
-	void setValue(int val);
+	void setValue(int value);
 
 	Integer add(Integer integer);
 	Integer substract(Integer integer);
