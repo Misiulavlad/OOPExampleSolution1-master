@@ -13,7 +13,7 @@ public:
 	Student getStudent(int index);
 	void add(Student student);
 	void remove(int index);
-	void set(int index, Student st2);
+	void set(Student st1, Student st2);
 	int getCount(int count);
 	string toString();
 };

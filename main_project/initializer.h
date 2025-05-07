@@ -1,6 +1,6 @@
-#include "students.h"
+#include "group.h"
 
 class Initializer {
 public:
-	void init(Student*& list, int count);
+	void init(Group group);
 };

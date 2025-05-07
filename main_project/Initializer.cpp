@@ -1,6 +1,7 @@
 #include "initializer.h"
 
-void Initializer::init(Student*& list, int count) {
+void Initializer::init(Group group ) {
+	
 	if (list == nullptr && count > 0) {
 		list = new Student[count];
 	}
