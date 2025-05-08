@@ -1,6 +1,5 @@
 #include "group.h"
-
 class Initializer {
 public:
-	void init(Group group);
+    void init(Group& group);
 };

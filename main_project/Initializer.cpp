@@ -1,30 +1,30 @@
 #include "initializer.h"
 
-void Initializer::init(Group group ) {
-	
-	if (list == nullptr && count > 0) {
-		list = new Student[count];
-	}
+void Initializer::init(Group& group) {
+    int count = group.getCount();
 
-	string names[]{ "Anna", "Alex", "Vlad" , "Matvey" ,
-		"Ivan" , "Timur", "Timofey", "Nikita", "Vladimir",
-		"Bogdan", "Rodion", "Alexey", "Daniil",
-		"Victor", "Kate", "Alice", "Maks" };
+    if (count > 0) {
+        group.setList(new Student[count]);
+    }
 
-	int minMark = 4;
-	int maxMark = 10;
+    if (!group.getList()) {
+        cout << "Error: list is null! Initialization failed." << endl;
+        return;
+    }
 
-	int minAge = 13;
-	int maxAge = 18;
+    string names[]{ "Anna", "Alex", "Vlad", "Matvey", "Ivan", "Timur", "Timofey",
+                    "Nikita", "Vladimir", "Bogdan", "Rodion", "Alexey", "Daniil",
+                    "Victor", "Kate", "Alice", "Maks" };
 
-	for (int i = 0; i < count; i++)
-	{
-		list[i].setName(names[rand() % 17]);
-		list[i].setAge(rand() % (maxAge - minAge + 1) + minAge);
-		for (int j = 0; j < list[i].getCountMark(); j++)
-		{
-			//list[i].getMarks()[j] = rand() % (maxMark - minMark + 1) + minMark;
-			*(list[i].getMarks() + j) = rand() % (maxMark - minMark + 1) + minMark;
-		}
-	}
+    int minMark = 4, maxMark = 10;
+    int minAge = 13, maxAge = 18;
+
+    for (int i = 0; i < count; i++) {
+        group.getList()[i].setName(names[rand() % 17]);
+        group.getList()[i].setAge(rand() % (maxAge - minAge + 1) + minAge);
+        for (int j = 0; j < group.getList()[i].getCountMark(); j++) {
+            *(group.getList()[i].getMarks() + j) = rand() % (maxMark - minMark + 1) + minMark;
+        }
+    }
+
 }
