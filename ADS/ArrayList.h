@@ -13,13 +13,11 @@ public:
 
 	void add(int value);
 	void add(int index, int value);
-	void addAll(int* values, int size);
+	
 	void addAll( int* values, int size,int index);
 
 	void remove(int index);
-	void remove();
-
-
+	
 	int getSize();
 	int get(int index,int size);
 
