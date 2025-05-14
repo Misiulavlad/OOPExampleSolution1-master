@@ -24,8 +24,8 @@ Group::~Group() {
 Student Group::getStudent(int index) {
 	if (index >= 0 && index < count) {
 		return list[index];
-	} 
-	
+	}
+
 	return Student("", 0, 0, false);
 }
 
@@ -38,18 +38,24 @@ Student Group::getStudent(int index) {
 //}
 
 void Group::set(Student st1, Student st2) {
-	
-		for (int i = 0; i < count; i++) {
-			if (st1.getName() == list[i].getName() 
-				&& st1.getAge() == list[i].getAge() 
-				&& st1.isAlive() == list[i].isAlive()) {
-				list[i] = st2;
-			}
+
+	for (int i = 0; i < count; i++) {
+		if (st1.getName() == list[i].getName()
+			&& st1.getAge() == list[i].getAge()
+			&& st1.isAlive() == list[i].isAlive()) {
+			list[i] = st2;
 		}
-	
+	}
+
 }
 
-int Group::getCount(int count) {
+void Group::setCount(int newCount) {
+	count = newCount;
+}
+
+
+
+int Group::getCount() const {
 	return count;
 }
 
@@ -61,4 +67,16 @@ string Group::toString() {
 	}
 
 	return s;
+}
+
+void Group::setList(Student* newList) {
+	if (list != nullptr) {
+		delete[] list;  
+	}
+	list = newList;  
+}
+
+
+Student* Group::getList() const {
+	return list;
 }

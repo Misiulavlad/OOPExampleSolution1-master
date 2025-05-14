@@ -1,44 +1,51 @@
 #include "Manager.h"
-
 int main() {
-	int count;
+    int count;
+    Group group;
+    Initializer initializer;
+    Manager manager;
 
-	cout << "Input number of students: ";
-	cin >> count;
+    cout << "Input number of students: ";
+    cin >> count;
+    group.setCount(count);
+    
 
-	Student* list = nullptr;
+  
 
-	Initializer initializer;
-	Manager manager;
+    initializer.init(group);
 
-	initializer.init(list, count);
+    cout << "List of students:\n";
+    for (int i = 0; i < group.getCount(); i++) {
+        cout << group.getList()[i].toString() << endl;
+    }
 
-	cout << "List of students:\n";
-	for (int i = 0; i < count; i++)
-	{
-		cout << list[i].toString() << endl;
-	}
+    int size = group.getCount();
+    Student* bestList = manager.getBestStudents(group);
 
-	int size = 0;
-	Student* bestList = manager.getBestStudents(list, count, &size);
+    if (bestList == nullptr) {
+        cout << "\nError: best student list is null!" << endl;
+    }
+    else {
+        cout << "\nList of best students:\n";
+        for (int i = 0; i < size; i++) {
+            cout << bestList[i].toString() << endl;
+        }
+    }
 
-	cout << "\nList of best students:\n";
-	for (int i = 0; i < size; i++)
-	{
-		cout << bestList[i].toString() << endl;
-	}
+    Student* worstList = manager.getWorstStudents(group);
 
-	Student* worstList = manager.getWorstStudents(list, count, &size);
+    if (worstList == nullptr) {
+        cout << "\nError: worst student list is null!" << endl;
+    }
+    else {
+        cout << "\nList of worst students:\n";
+        for (int i = 0; i < size; i++) {
+            cout << worstList[i].toString() << endl;
+        }
+    }
 
-	cout << "\nList of worst students:\n";
-	for (int i = 0; i < size; i++)
-	{
-		cout << worstList[i].toString() << endl;
-	}
+    delete[] bestList;
+    delete[] worstList;
 
-	delete[] list;
-	delete[] bestList;
-	delete[] worstList;
-
-	return 0;
+    return 0;
 }
