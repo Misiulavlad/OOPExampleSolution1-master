@@ -25,7 +25,7 @@ public:
 
 	void set(int index, int value);
 	void clear();
-	bool isEmpty() { return getSize() = 0; }
+	bool isEmpty();
 
 	string toString();
 };
