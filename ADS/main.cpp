@@ -17,7 +17,6 @@ int main() {
 	while (!queue.isEmpty()) {
 		cout << queue.dequeue() << " ";
 	}
-
-
+	
 	return 0;
 }

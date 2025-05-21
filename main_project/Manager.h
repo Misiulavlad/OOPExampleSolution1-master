@@ -1,7 +1,6 @@
-#include "initializer.h"
-class Manager
-{
-public:
-	Student* getBestStudents(Group& group);
-	Student* getWorstStudents(Group& group);
+#include "Group.h"
+#include "Worker.h"
+class Manager:public Worker{
+class Manager:public Worker{
+	
 };
